@@ -11,6 +11,7 @@
     <textarea placeholder="enter message here..." matInput required ngModel #content="ngModel" rows="10" name="content" ></textarea>
     <mat-error *ngIf="content.invalid">please enter message</mat-error>
   </mat-form-field>
-  <button type="submit" mat-flat-button color="accent">send</button>
+  <button [disabled]="!postForm.valid" type="submit" mat-flat-button color="accent">send</button>
+
 </form>
 </mat-card>
