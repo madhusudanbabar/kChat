@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'kChat';
+  postsCollection = [];
+
+  onPostAdded( post ){
+    this.postsCollection.push(post);
+  }
 }

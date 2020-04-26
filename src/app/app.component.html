@@ -1,5 +1,5 @@
 <k-header></k-header>
 <main>
-  <k-create></k-create>
-  <k-display></k-display>
+  <k-create (postCreated) = "onPostAdded($event)" ></k-create>
+  <k-display [posts] = "postsCollection" ></k-display>
 </main>

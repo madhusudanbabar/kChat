@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'k-create',
@@ -6,15 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
+  title: string;
+  content: string;
+  @Output() postCreated = new EventEmitter()
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  newPost: string = "no content";
+  newPost: string;
 
   onAddPost(postInput: HTMLTextAreaElement){
-    this.newPost = postInput.value;
+    const post = {
+      title: this.title,
+      content: this.content
+    }
+    this.postCreated.emit(post);
   }
 }

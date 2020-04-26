@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'k-display',
@@ -12,10 +12,12 @@ export class DisplayComponent implements OnInit {
   ngOnInit() {
   }
 
-  posts = [
-    { title: "first post", content: "this is the content"},
-    { title: "second post", content: "this is the content"},
-    { title: "third post", content: "this is the content"}
-  ]
+  // posts = [
+  //   { title: "first post", content: "this is the content"},
+  //   { title: "second post", content: "this is the content"},
+  //   { title: "third post", content: "this is the content"}
+  // ]
+
+  @Input() posts = [];
 
 }

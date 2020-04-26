@@ -5,4 +5,6 @@
     </mat-expansion-panel-header> <hr>
     {{ post.content}}
   </mat-expansion-panel>
+
+  <p *ngIf="posts.length == 0" style="text-align: center;" class="mat-body-1">no posts yet</p>
 </mat-accordion>
