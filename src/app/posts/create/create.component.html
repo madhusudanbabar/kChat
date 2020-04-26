@@ -1,0 +1,9 @@
+<mat-card>
+  <mat-form-field>
+    <textarea matInput rows="10" #postInput></textarea>
+  </mat-form-field>
+  <button mat-flat-button color="accent" (click)="onAddPost(postInput)">
+    send
+  </button>
+</mat-card>
+<p>{{ newPost }}</p>
