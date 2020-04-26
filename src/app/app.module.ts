@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +13,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { HeaderComponent } from './posts/header/header.component';
 import { MatExpansionModule } from "@angular/material/expansion";
 import { DisplayComponent } from './posts/display/display.component';
+import { DbService } from './services/db.service';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,10 @@ import { DisplayComponent } from './posts/display/display.component';
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DbService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

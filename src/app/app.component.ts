@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Post } from "./posts/post.model";
 @Component({
   selector: 'k-root',
   templateUrl: './app.component.html',
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'kChat';
-  postsCollection = [];
+  postsCollection: Post[] = [];
 
   onPostAdded( post ){
     this.postsCollection.push(post);

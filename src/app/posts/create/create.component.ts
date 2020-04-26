@@ -1,4 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Post } from '../post.model';
+import { DbService } from "../../services/db.service";
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'k-create',
@@ -8,20 +11,28 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class CreateComponent implements OnInit {
   title: string;
   content: string;
-  @Output() postCreated = new EventEmitter()
+  post:Post;
 
-  constructor() { }
+  constructor( public db: DbService) {
+   }
 
   ngOnInit() {
+
   }
 
   newPost: string;
 
-  onAddPost(postInput: HTMLTextAreaElement){
-    const post = {
-      title: this.title,
-      content: this.content
+  onAddPost(form: NgForm){
+    console.log(form);
+    if (!form.valid) {
+      return;
     }
-    this.postCreated.emit(post);
+    this.post = {
+      title: form.value.title,
+      content: form.value.content
+    }
+    this.db.addPost(this.post);
+    form.resetForm();
+    return false;
   }
 }
